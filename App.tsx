@@ -9,12 +9,12 @@
  */
 import 'react-native-gesture-handler';
 import React from 'react';
-import Navigators from "./src/navigators/Navigators"
+import Navigators from './src/navigators/Navigators';
 
 const App = () => {
   return (
     <>
-    <Navigators/>
+      <Navigators />
     </>
   );
 };
