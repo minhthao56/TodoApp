@@ -4,23 +4,21 @@ import Feather from 'react-native-vector-icons/Feather';
 import moment from 'moment';
 import {StackScreenProps} from '@react-navigation/stack';
 
-import Agenda from '../../components/Home/Agenda/Agenda';
-import TextBlack from '../../components/Text/TextBlack';
-import TextLight from '../../components/Text/TextLight';
-import TextBold from '../../components/Text/TextBold';
-import ButtonAdd from '../../components/Home/ButtonAdd/ButtonAdd';
-import ListTodo from '../../components/Home/ListTodo/ListTodo';
-// import {SafeAreaView} from 'react-native-safe-area-context';
+// import Agenda from '../../components/Home/Agenda/Agenda';
+// import ButtonAdd from '../../components/Home/ButtonAdd/ButtonAdd';
+// import ListTodo from '../../components/Home/ListTodo/ListTodo';
+import {TextBlack, TextBold, TextLight} from '../../components/common';
+import {Agenda, ButtonAdd, ListTodo} from '../../components';
 
 type RootStackParamList = {
-  DetailTask: undefined;
+  CreateTask: undefined;
 };
-type Props = StackScreenProps<RootStackParamList, 'DetailTask'>;
+type Props = StackScreenProps<RootStackParamList, 'CreateTask'>;
 
-export default function Home({route, navigation}: Props) {
+export function Home({route, navigation}: Props) {
   const monthNow = moment().format('MMM');
   const handleDetailAddTask = () => {
-    navigation.navigate('DetailTask');
+    navigation.navigate('CreateTask');
   };
   return (
     <SafeAreaView style={styles.container}>

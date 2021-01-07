@@ -1,14 +1,18 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
+import {Content, DateTimePickerTask} from '../../components';
 
-const CreateTask = () => {
+export const CreateTask = () => {
   return (
-    <View>
-      <Text>CreateTask</Text>
+    <View style={styles.container}>
+      <Content />
+      <DateTimePickerTask />
     </View>
   );
 };
 
-export default CreateTask;
-
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  container: {
+    paddingHorizontal: 8,
+  },
+});

@@ -1,13 +1,13 @@
 import React from 'react';
 import {StyleSheet, View, TouchableOpacity} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
-import TextBlack from '../../Text/TextBlack';
+import {TextBlack} from '../../common';
 
 interface IButtonAdd {
   onPress: Function;
 }
 
-const ButtonAdd = (props: IButtonAdd) => {
+export const ButtonAdd = (props: IButtonAdd) => {
   const {onPress} = props;
   return (
     <View style={styles.container}>
@@ -20,8 +20,6 @@ const ButtonAdd = (props: IButtonAdd) => {
     </View>
   );
 };
-
-export default ButtonAdd;
 
 const styles = StyleSheet.create({
   title: {

@@ -1,4 +1,5 @@
 import React from 'react';
+import {StyleSheet, View} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {
@@ -6,15 +7,14 @@ import {
   createBottomTabNavigator,
 } from '@react-navigation/bottom-tabs';
 import Feather from 'react-native-vector-icons/Feather';
-
-import Home from '../screens/Home/Home';
-import DetailTask from '../screens/Home/DetailTask';
-import CreateTask from '../screens/Home/CreateTask';
-import Profile from '../screens/Profile/Profile';
-import DetailChartProfile from '../screens/Profile/DetailChartProfile';
-import {StyleSheet, View} from 'react-native';
-import {TabBarAdvancedButton} from '../components/TabBarAdvancedButton';
-import {SafeAreaProvider} from 'react-native-safe-area-context';
+import {
+  Home,
+  DetailTask,
+  CreateTask,
+  Profile,
+  DetailChartProfile,
+} from '../screens';
+import {TabBarAdvancedButton} from '../components/common';
 
 const HomeStack = createStackNavigator();
 const ProfileStack = createStackNavigator();

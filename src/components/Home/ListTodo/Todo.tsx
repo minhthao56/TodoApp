@@ -2,10 +2,7 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 import Feather from 'react-native-vector-icons/Feather';
-
-import TextBold from '../../Text/TextBold';
-import TextLight from '../../Text/TextLight';
-import TextRegular from '../../Text/TextRegular';
+import {TextBold, TextLight, TextRegular} from '../../common';
 
 interface ITodo {
   borderLeftColor?: string;

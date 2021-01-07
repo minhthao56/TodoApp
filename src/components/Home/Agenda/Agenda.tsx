@@ -3,7 +3,7 @@ import {FlatList, StyleSheet} from 'react-native';
 import {defindTimeNow, realDayWeek} from '../../../helpers/home';
 import ADay from './ADay';
 
-const Agenda: React.FC = () => {
+export const Agenda: React.FC = () => {
   const days = realDayWeek(7, 7);
 
   const [daysWeek, setDaysWeek] = useState(days);
@@ -28,8 +28,6 @@ const Agenda: React.FC = () => {
     />
   );
 };
-
-export default Agenda;
 
 const styles = StyleSheet.create({
   container: {

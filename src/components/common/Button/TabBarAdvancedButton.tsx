@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import {BottomTabBarButtonProps} from '@react-navigation/bottom-tabs/lib/typescript/src/types';
 import Feather from 'react-native-vector-icons/Feather';
-import {TabBg} from '../svg/TabBg';
+import {TabBg} from '../../../svg/TabBg';
 
 type Props = BottomTabBarButtonProps & {
   bgColor?: string;

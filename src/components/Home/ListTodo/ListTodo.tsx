@@ -1,5 +1,5 @@
 import React from 'react';
-import {Dimensions, FlatList, ScrollView, StyleSheet, View} from 'react-native';
+import {FlatList, StyleSheet, View} from 'react-native';
 import Todo from './Todo';
 
 const dataEx = [
@@ -52,7 +52,7 @@ const dataEx = [
   },
 ];
 
-const ListTodo = () => {
+export const ListTodo = () => {
   return (
     <FlatList
       data={dataEx}
@@ -70,7 +70,5 @@ const ListTodo = () => {
     />
   );
 };
-
-export default ListTodo;
 
 const styles = StyleSheet.create({});

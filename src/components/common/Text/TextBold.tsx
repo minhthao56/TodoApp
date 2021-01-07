@@ -5,7 +5,8 @@ interface Props {
   styleText?: Object;
   children: string;
 }
-const TextLight: React.FC<Props> = ({styleText, children}) => {
+
+export const TextBold: React.FC<Props> = ({styleText, children}) => {
   return (
     <View>
       <Text style={{...styleText, ...styles.text}}>{children}</Text>
@@ -13,10 +14,8 @@ const TextLight: React.FC<Props> = ({styleText, children}) => {
   );
 };
 
-export default TextLight;
-
 const styles = StyleSheet.create({
   text: {
-    fontFamily: 'Mulish-Light',
+    fontFamily: 'Mulish-Bold',
   },
 });

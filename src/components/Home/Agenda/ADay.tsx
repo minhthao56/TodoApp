@@ -1,7 +1,7 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import TextRegular from '../../Text/TextRegular';
 import {defindTimeNow, defineDateMonthYear} from '../../../helpers/home';
+import {TextRegular} from '../../common';
 
 type Day = {
   day: string;
@@ -32,8 +32,15 @@ const ADay: React.FC<IDay> = ({item}) => {
           ? {...styles.container, ...styles.now}
           : styles.container
       }>
-      <TextRegular styleText={ checkTimeNowOrNot()? {...styles.day,...styles.dayNow}:styles.day}>{item.day}</TextRegular>
-      <TextRegular styleText = {checkTimeNowOrNot()?styles.dateNow: {}}>{item.date}</TextRegular>
+      <TextRegular
+        styleText={
+          checkTimeNowOrNot() ? {...styles.day, ...styles.dayNow} : styles.day
+        }>
+        {item.day}
+      </TextRegular>
+      <TextRegular styleText={checkTimeNowOrNot() ? styles.dateNow : {}}>
+        {item.date}
+      </TextRegular>
     </View>
   );
 };
@@ -62,5 +69,5 @@ const styles = StyleSheet.create({
   },
   dateNow: {
     color: 'white',
-  }
+  },
 });
