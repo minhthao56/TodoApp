@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     color: '#3E3F45',
   },
   containerIcon: {
-    backgroundColor: '#3E3F45',
+    backgroundColor: '#ff4e6a',
     width: 28,
     height: 28,
     justifyContent: 'center',

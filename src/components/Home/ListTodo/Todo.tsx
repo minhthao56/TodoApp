@@ -12,15 +12,33 @@ interface ITodo {
 }
 
 const Todo: React.FC<ITodo> = ({borderLeftColor, title, content, time}) => {
+  // right
   const renderRightActions = () => {
     return (
-      <View style={{...styles.containerAction, backgroundColor: '#2098F3'}}>
-        <Feather size={18} name="edit" color="white" style={{marginRight: 4}} />
-        <TextRegular styleText={styles.textDelete}>Edit</TextRegular>
-      </View>
+      <>
+        <View style={{...styles.containerAction, backgroundColor: '#6673ff'}}>
+          <Feather
+            size={18}
+            name="edit"
+            color="white"
+            style={{marginRight: 4}}
+          />
+          <TextRegular styleText={styles.textDelete}>Edit</TextRegular>
+        </View>
+        <View style={{...styles.containerAction, backgroundColor: '#11b743'}}>
+          <Feather
+            size={18}
+            name="edit"
+            color="white"
+            style={{marginRight: 4}}
+          />
+          <TextRegular styleText={styles.textDelete}>Edit</TextRegular>
+        </View>
+      </>
     );
   };
 
+  //left
   const renderLeftActions = () => {
     return (
       <View style={styles.containerAction}>
@@ -38,13 +56,27 @@ const Todo: React.FC<ITodo> = ({borderLeftColor, title, content, time}) => {
     <Swipeable
       renderRightActions={renderRightActions}
       renderLeftActions={renderLeftActions}>
-      <View style={{...styles.container, borderLeftColor: borderLeftColor}}>
+      <View
+        style={{
+          ...styles.container,
+          borderLeftColor: borderLeftColor,
+          shadowColor: '#000',
+          shadowOffset: {
+            width: 0,
+            height: 1,
+          },
+          shadowOpacity: 0.2,
+          shadowRadius: 1.41,
+          elevation: 2,
+          marginVertical: 4,
+          marginHorizontal: 4,
+        }}>
         <View style={styles.main}>
           <TextBold styleText={styles.title}>{title}</TextBold>
           <TextRegular styleText={styles.content}>{content}</TextRegular>
         </View>
         <View>
-          <TextLight styleText={styles.time}>{time}</TextLight>
+          <TextBold styleText={styles.time}>{time}</TextBold>
         </View>
       </View>
     </Swipeable>
@@ -62,13 +94,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    backgroundColor: '#F5F5F5',
     padding: 16,
-    borderRadius: 16,
+    borderRadius: 8,
     borderLeftWidth: 5,
+    backgroundColor: 'white',
   },
   time: {
-    color: '#898989',
+    color: 'black',
   },
   main: {
     flex: 1,
@@ -80,9 +112,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5403B',
-    borderRadius: 16,
+    backgroundColor: '#ff4e6a',
+    borderRadius: 8,
     width: 72,
+    // height: '94%',
+    // marginTop: 4,
+    marginVertical: 4,
   },
   textDelete: {
     color: 'white',

@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
     marginStart: 10,
   },
   now: {
-    backgroundColor: '#3E3F45',
+    backgroundColor: '#fe4e6a',
     borderRadius: 60,
   },
   dayNow: {

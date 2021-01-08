@@ -6,49 +6,43 @@ const dataEx = [
   {
     title: 'Meeting with Join',
     content: 'Meeting with Join reading and seening',
-    color: '#2399FB',
+    color: '#ff4e6a',
     time: '09:00',
   },
   {
     title: 'Join',
     content:
       'Meeting with Join reading and seening Meeting with Join reading and seening Meeting with Join reading and seening',
-    color: '#9E27AF',
+    color: '#6673ff',
     time: '12:00',
   },
   {
     title: 'Testing...',
     content:
       'Meeting with Join reading and seening Meeting with Join reading and seening Meeting with Join reading and seening',
-    color: '#F7ED3F',
+    color: '#fea248',
     time: '23:00',
   },
   {
     title: 'Code',
     content:
       'reading and seening reading and seening Meeting with Join reading and seening Meeting with Join reading and seening Meeting with Join reading and seening',
-    color: '#F5403B',
+    color: '#9045ba',
     time: '23:22',
   },
   {
     title: 'Developer...',
     content:
       'reading and seening reading and seening Meeting with Join reading and seening Meeting with Join reading and seening Meeting with Join reading and seening',
-    color: '#FF9305',
+    color: '#11b743',
     time: '14:22',
   },
   {
     title: 'Coding...',
     content:
       'reading and seening reading and seening Meeting with Join reading and seening Meeting with Join reading and seening Meeting with Join reading and seening',
-    color: '#4CAE50',
+    color: '#fad24f',
     time: '15:22',
-  },
-  {
-    title: 'Bay...',
-    content: 'Join reading and seening Meeting with Join reading and seening',
-    color: '#EE2375',
-    time: '21:22',
   },
 ];
 
@@ -65,8 +59,8 @@ export const ListTodo = () => {
         />
       )}
       keyExtractor={(item, i) => i.toString()}
-      ItemSeparatorComponent={() => <View style={{height: 16}}></View>}
-      contentContainerStyle={{paddingBottom: 295}}
+      ItemSeparatorComponent={() => <View style={{height: 5}}></View>}
+      contentContainerStyle={{paddingBottom: 335}}
     />
   );
 };

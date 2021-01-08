@@ -18,7 +18,7 @@ export const TextInputCommon: React.FC<ITextInputCommon> = ({
     <TextInput
       style={{...styles.textInput, ...style}}
       placeholder={placeholder}
-      placeholderTextColor="#D1D1D1"
+      placeholderTextColor="#565656"
       multiline={multiline}
       numberOfLines={numberOfLines}
       autoCorrect={false}

@@ -7,13 +7,7 @@ import {
   createBottomTabNavigator,
 } from '@react-navigation/bottom-tabs';
 import Feather from 'react-native-vector-icons/Feather';
-import {
-  Home,
-  DetailTask,
-  CreateTask,
-  Profile,
-  DetailChartProfile,
-} from '../screens';
+import {Home, DetailTask, Profile, DetailChartProfile} from '../screens';
 import {TabBarAdvancedButton} from '../components/common';
 
 const HomeStack = createStackNavigator();
@@ -25,7 +19,7 @@ export default function Navigators() {
       <HomeStack.Navigator screenOptions={{headerShown: false}}>
         <HomeStack.Screen name="Home" component={Home} />
         <HomeStack.Screen name="DetailTask" component={DetailTask} />
-        <HomeStack.Screen name="CreateTask" component={CreateTask} />
+        {/* <HomeStack.Screen name="CreateTask" component={CreateTask} /> */}
       </HomeStack.Navigator>
     );
   }
@@ -70,7 +64,7 @@ export default function Navigators() {
         <Tab.Screen name="Task" component={HomeStackScreen} />
         <Tab.Screen
           name="Add"
-          component={CreateTask}
+          component={DetailTask}
           options={{
             tabBarButton: (props) => (
               <TabBarAdvancedButton bgColor={'white'} {...props} />

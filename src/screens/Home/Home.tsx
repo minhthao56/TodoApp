@@ -1,45 +1,60 @@
 import React from 'react';
-import {StyleSheet, View, SafeAreaView} from 'react-native';
+import {StyleSheet, View, SafeAreaView, Image} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
 import moment from 'moment';
 import {StackScreenProps} from '@react-navigation/stack';
 
-// import Agenda from '../../components/Home/Agenda/Agenda';
-// import ButtonAdd from '../../components/Home/ButtonAdd/ButtonAdd';
-// import ListTodo from '../../components/Home/ListTodo/ListTodo';
 import {TextBlack, TextBold, TextLight} from '../../components/common';
 import {Agenda, ButtonAdd, ListTodo} from '../../components';
 
 type RootStackParamList = {
-  CreateTask: undefined;
+  DetailTask: undefined;
 };
-type Props = StackScreenProps<RootStackParamList, 'CreateTask'>;
+type Props = StackScreenProps<RootStackParamList, 'DetailTask'>;
 
 export function Home({route, navigation}: Props) {
   const monthNow = moment().format('MMM');
   const handleDetailAddTask = () => {
-    navigation.navigate('CreateTask');
+    navigation.navigate('DetailTask');
   };
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.header}>
-        <View>
+      <View
+        style={{
+          backgroundColor: 'white',
+          shadowColor: '#000',
+          shadowOffset: {
+            width: 0,
+            height: 1,
+          },
+          shadowOpacity: 0.2,
+          shadowRadius: 1.41,
+          elevation: 2,
+          paddingHorizontal: 8,
+          marginBottom: 16,
+        }}>
+        <View style={styles.header}>
           <TextBlack styleText={styles.textBold}>Hey Williams</TextBlack>
-          <TextLight styleText={styles.textLight}>remaining task: 6</TextLight>
+          <Image
+            source={{uri: 'https://picsum.photos/200'}}
+            style={{height: 42, width: 42, borderRadius: 100}}
+          />
         </View>
-        <Feather name="bell" size={24} />
-      </View>
-      <View style={styles.containerAgenda}>
-        <View style={styles.containerMonth}>
-          <TextBold styleText={styles.textMonth}>{monthNow}</TextBold>
+        <TextLight styleText={styles.textLight}>remaining task: 6</TextLight>
+        <View style={styles.containerAgenda}>
+          <View style={styles.containerMonth}>
+            <TextBold styleText={styles.textMonth}>{monthNow}</TextBold>
+          </View>
+          <Agenda />
         </View>
-        <Agenda />
       </View>
-      <View style={styles.containerBtnAdd}>
-        <ButtonAdd onPress={handleDetailAddTask} />
-      </View>
-      <View>
-        <ListTodo />
+      <View style={{paddingHorizontal: 4}}>
+        <View style={styles.containerBtnAdd}>
+          <ButtonAdd onPress={handleDetailAddTask} />
+        </View>
+        <View>
+          <ListTodo />
+        </View>
       </View>
     </SafeAreaView>
   );
@@ -55,11 +70,10 @@ const styles = StyleSheet.create({
   textLight: {
     fontSize: 18,
     color: '#898989',
+    marginBottom: 16,
   },
   container: {
-    paddingLeft: 8,
-    paddingRight: 8,
-    backgroundColor: 'white',
+    backgroundColor: '#fcfcfc',
     flex: 1,
   },
   header: {
@@ -69,17 +83,11 @@ const styles = StyleSheet.create({
   },
   containerAgenda: {
     flexDirection: 'row',
-    borderTopWidth: 1,
-    borderTopColor: '#ddd',
-    paddingTop: 12,
-    marginTop: 24,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ddd',
-    paddingBottom: 12,
     marginBottom: 16,
+    paddingVertical: 8,
   },
   textMonth: {
-    fontSize: 16,
+    fontSize: 18,
   },
   containerMonth: {
     borderRightWidth: 1,
