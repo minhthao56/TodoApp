@@ -5,3 +5,4 @@ export * from "./TextRegular";
 export * from "./TabBarAdvancedButton"
 export * from "./TextInputCommon"
 export * from "./Button"
+export * from "./IconSet"

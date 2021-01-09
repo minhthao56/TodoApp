@@ -39,7 +39,7 @@ export default function Navigators() {
     <NavigationContainer>
       <Tab.Navigator
         tabBarOptions={{
-          activeTintColor: '#F5403B',
+          activeTintColor: '#4168F3',
           inactiveTintColor: '#3E3F45',
           showLabel: false,
           style: styles.navigator,

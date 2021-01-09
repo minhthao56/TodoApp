@@ -42,26 +42,26 @@ export const realDayWeek = (
   let days: Array<DayWeek> = [];
   if (numberNextDay && numberPreviousDay) {
     for (let i = 0; i <= numberNextDay; i++) {
-      const resultTime = changeFormDayWeek(i, 0)
+      const resultTime = changeFormDayWeek(i, 0);
       days.push(resultTime);
     }
   }
 
   if (numberNextDay && numberPreviousDay) {
     for (let i = 1; i <= numberPreviousDay; i++) {
-      const resultTime =   changeFormDayWeek(i, 1)
+      const resultTime = changeFormDayWeek(i, 1);
       days.push(resultTime);
     }
   }
   if (numberNextDay && !numberPreviousDay) {
     for (let i = 0; i <= numberNextDay; i++) {
-      const resultTime = changeFormDayWeek(i, 0)
+      const resultTime = changeFormDayWeek(i, 0);
       days.push(resultTime);
     }
   }
   if (!numberNextDay && numberPreviousDay) {
     for (let i = 0; i <= numberPreviousDay; i++) {
-      const resultTime = changeFormDayWeek(i, 1)
+      const resultTime = changeFormDayWeek(i, 1);
       days.push(resultTime);
     }
   }
@@ -99,4 +99,19 @@ export const defineDateMonthYear = (time: number): timeNow => {
   const monthNow = timeNow.format('MM');
   const yearNow = timeNow.format('YYYY');
   return {dateNow, monthNow, yearNow};
+};
+export const readMore = (
+  textString: string | undefined | null,
+  numberString: number | undefined,
+) => {
+  if (textString && numberString) {
+    if (textString.length <= numberString) {
+      return textString;
+    } else {
+      const cutString = textString.substring(0, numberString);
+      const stinngReadMore = `${cutString}...`;
+      return stinngReadMore;
+    }
+  }
+  return '';
 };
