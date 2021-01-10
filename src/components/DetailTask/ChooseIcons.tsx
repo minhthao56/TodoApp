@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {StyleSheet, TouchableOpacity, View} from 'react-native';
+import {blueColor} from '../../assets/styles';
 import {TextLight, IconSet} from '../common';
 import {ModalChooseActivity} from './ModalChooseActivity';
 
@@ -41,7 +42,7 @@ const colorData = [
   },
 ];
 
-export const ChooseColor = () => {
+export const ChooseIcons = () => {
   const [isModalVisible, setModalVisible] = useState<boolean>(false);
 
   const handleShowModal = () => {
@@ -58,7 +59,7 @@ export const ChooseColor = () => {
               <IconSet
                 name={item.icon}
                 size={22}
-                color={'#4168F3'}
+                color={blueColor}
                 type={item.type}
               />
             </View>

@@ -1,10 +1,10 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
-export function DetailChartProfile() {
+export function DetailAccount() {
   return (
     <View>
-      <Text>DetailChartProfile</Text>
+      <Text>DetailAccount</Text>
     </View>
   );
 }

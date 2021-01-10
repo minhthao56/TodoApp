@@ -1,4 +1,4 @@
-export * from './Home/Home';
-export *  from './Home/DetailTask';
+export * from './Tasks/Tasks';
+export *  from './Tasks/DetailTask';
 export *  from "./Profile/Profile"
-export *  from "./Profile/DetailChartProfile"
+export *  from "./Profile/DetailAccount"

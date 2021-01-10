@@ -2,7 +2,7 @@ import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {
   CheckListTask,
-  ChooseColor,
+  ChooseIcons,
   Content,
   DateTimePickerTask,
 } from '../../components';
@@ -18,7 +18,7 @@ export const DetailTask = () => {
         <DateTimePickerTask />
       </View>
       <View style={styles.chooseColor}>
-        <ChooseColor />
+        <ChooseIcons />
       </View>
       <View style={styles.checkList}>
         <CheckListTask />

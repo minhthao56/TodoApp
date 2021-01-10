@@ -3,6 +3,7 @@ import {StyleSheet, TouchableWithoutFeedback, View} from 'react-native';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 import Animated, {Easing} from 'react-native-reanimated';
 import Feather from 'react-native-vector-icons/Feather';
+import {blueColor} from '../../../assets/styles';
 import {readMore} from '../../../helpers/home';
 import {IconSet, TextBold, TextRegular} from '../../common';
 
@@ -32,12 +33,12 @@ const Todo: React.FC<ITodo> = ({
     !isExpand
       ? Animated.timing(fadeAnim, {
           toValue: 200,
-          duration: 300,
+          duration: 200,
           easing: Easing.ease,
         }).start()
       : Animated.timing(fadeAnim, {
           toValue: 100,
-          duration: 300,
+          duration: 200,
           easing: Easing.ease,
         }).start();
   };
@@ -60,7 +61,7 @@ const Todo: React.FC<ITodo> = ({
           />
           <TextRegular styleText={styles.textDelete}>Finsh</TextRegular>
         </View>
-        <View style={{...styles.containerAction, backgroundColor: '#4168F3'}}>
+        <View style={{...styles.containerAction, backgroundColor: blueColor}}>
           <Feather
             size={18}
             name="edit"
@@ -100,7 +101,7 @@ const Todo: React.FC<ITodo> = ({
           style={[
             styles.container,
             {
-              backgroundColor: isExpand ? '#4168F3' : 'white',
+              backgroundColor: isExpand ? blueColor : 'white',
               height: fadeAnim,
             },
           ]}>
@@ -114,15 +115,10 @@ const Todo: React.FC<ITodo> = ({
               <View
                 style={
                   isExpand
-                    ? {...styles.containerIcon, backgroundColor: '#5C80FA'}
+                    ? {...styles.containerIcon, backgroundColor: 'white'}
                     : styles.containerIcon
                 }>
-                <IconSet
-                  name={icon}
-                  size={18}
-                  color={isExpand ? 'white' : '#4168F3'}
-                  type={type}
-                />
+                <IconSet name={icon} size={18} color={blueColor} type={type} />
               </View>
             </View>
 
@@ -215,7 +211,7 @@ const styles = StyleSheet.create({
     marginVertical: 4,
     marginHorizontal: 4,
     borderLeftWidth: 2,
-    borderLeftColor: '#4168F3',
+    borderLeftColor: blueColor,
     justifyContent: 'space-between',
   },
   title: {

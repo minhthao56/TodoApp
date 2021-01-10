@@ -10,7 +10,7 @@ export const Content = () => {
         style={styles.textarea}
         placeholder="Description"
         multiline={true}
-        numberOfLines={4}
+        numberOfLines={6}
       />
     </View>
   );
@@ -23,5 +23,7 @@ const styles = StyleSheet.create({
   textarea: {
     fontSize: 16,
     textAlignVertical: 'top',
+    borderBottomWidth: 1,
+    borderBottomColor: '#f1f1f1',
   },
 });

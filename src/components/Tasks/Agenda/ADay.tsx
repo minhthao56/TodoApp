@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
+import {blueColor} from '../../../assets/styles';
 import {defindTimeNow, defineDateMonthYear} from '../../../helpers/home';
 import {TextRegular} from '../../common';
 
@@ -61,7 +62,7 @@ const styles = StyleSheet.create({
     marginStart: 10,
   },
   now: {
-    backgroundColor: '#4168F3',
+    backgroundColor: blueColor,
     borderRadius: 8,
   },
   dayNow: {

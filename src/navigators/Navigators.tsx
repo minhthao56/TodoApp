@@ -7,19 +7,20 @@ import {
   createBottomTabNavigator,
 } from '@react-navigation/bottom-tabs';
 import Feather from 'react-native-vector-icons/Feather';
-import {Home, DetailTask, Profile, DetailChartProfile} from '../screens';
+import {Tasks, DetailTask, Profile, DetailAccount} from '../screens';
 import {TabBarAdvancedButton} from '../components/common';
+import {blueColor} from '../assets/styles';
 
 const HomeStack = createStackNavigator();
 const ProfileStack = createStackNavigator();
 const Tab = createBottomTabNavigator();
+
 export default function Navigators() {
-  function HomeStackScreen() {
+  function TaskStackScreen() {
     return (
       <HomeStack.Navigator screenOptions={{headerShown: false}}>
-        <HomeStack.Screen name="Home" component={Home} />
+        <HomeStack.Screen name="Tasks" component={Tasks} />
         <HomeStack.Screen name="DetailTask" component={DetailTask} />
-        {/* <HomeStack.Screen name="CreateTask" component={CreateTask} /> */}
       </HomeStack.Navigator>
     );
   }
@@ -27,10 +28,7 @@ export default function Navigators() {
     return (
       <ProfileStack.Navigator screenOptions={{headerShown: false}}>
         <ProfileStack.Screen name="Profile" component={Profile} />
-        <ProfileStack.Screen
-          name="DetailChartProfile"
-          component={DetailChartProfile}
-        />
+        <ProfileStack.Screen name="DetailAccount" component={DetailAccount} />
       </ProfileStack.Navigator>
     );
   }
@@ -39,7 +37,7 @@ export default function Navigators() {
     <NavigationContainer>
       <Tab.Navigator
         tabBarOptions={{
-          activeTintColor: '#4168F3',
+          activeTintColor: blueColor,
           inactiveTintColor: '#3E3F45',
           showLabel: false,
           style: styles.navigator,
@@ -61,7 +59,7 @@ export default function Navigators() {
             <BottomTabBar {...props} />
           </View>
         )}>
-        <Tab.Screen name="Task" component={HomeStackScreen} />
+        <Tab.Screen name="Task" component={TaskStackScreen} />
         <Tab.Screen
           name="Add"
           component={DetailTask}

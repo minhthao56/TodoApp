@@ -3,6 +3,7 @@ import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import {BottomTabBarButtonProps} from '@react-navigation/bottom-tabs/lib/typescript/src/types';
 import Feather from 'react-native-vector-icons/Feather';
 import {TabBg} from '../../svg/TabBg';
+import {blueColor} from '../../assets/styles';
 
 type Props = BottomTabBarButtonProps & {
   bgColor?: string;
@@ -34,7 +35,7 @@ const styles = StyleSheet.create({
     width: 50,
     height: 50,
     borderRadius: 27,
-    backgroundColor: '#4168F3',
+    backgroundColor: blueColor,
   },
   buttonIcon: {
     fontSize: 16,

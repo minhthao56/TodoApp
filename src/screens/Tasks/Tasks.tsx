@@ -1,32 +1,29 @@
 import React from 'react';
-import {StyleSheet, View, SafeAreaView, Image} from 'react-native';
+import {StyleSheet, View, SafeAreaView, Image, StatusBar} from 'react-native';
 import moment from 'moment';
 import {StackScreenProps} from '@react-navigation/stack';
 
-import {TextBlack, TextBold, TextLight, IconSet} from '../../components/common';
+import {Avatar, TextBold, TextLight} from '../../components/common';
 import {Agenda, ButtonAdd, ListTodo} from '../../components';
+import {boxShadown} from '../../assets/styles';
 
 type RootStackParamList = {
   DetailTask: undefined;
 };
 type Props = StackScreenProps<RootStackParamList, 'DetailTask'>;
 
-export function Home({route, navigation}: Props) {
+export function Tasks({route, navigation}: Props) {
   const monthNow = moment().format('MMM');
   const handleDetailAddTask = () => {
     navigation.navigate('DetailTask');
   };
   return (
     <SafeAreaView style={styles.container}>
+      <StatusBar backgroundColor="white" barStyle="dark-content" />
       <View style={styles.containerHeader}>
         <View style={styles.header}>
-          <TextBlack styleText={styles.textBold}>Hey Williams</TextBlack>
-          <View style={styles.avatar}>
-            <Image
-              source={{uri: 'https://picsum.photos/200'}}
-              style={styles.imageAvatar}
-            />
-          </View>
+          <TextBold styleText={styles.textBold}>Hey Thao</TextBold>
+          <Avatar image="https://picsum.photos/200" />
         </View>
         <TextLight styleText={styles.textLight}>remaining task: 6</TextLight>
         <View style={styles.containerAgenda}>
@@ -50,7 +47,7 @@ export function Home({route, navigation}: Props) {
 
 const styles = StyleSheet.create({
   textBold: {
-    fontSize: 34,
+    fontSize: 30,
     color: '#343434',
     marginBottom: 8,
     marginTop: 8,
@@ -90,14 +87,7 @@ const styles = StyleSheet.create({
   },
   containerHeader: {
     backgroundColor: 'white',
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 1,
-    },
-    shadowOpacity: 0.2,
-    shadowRadius: 1.41,
-    elevation: 2,
+    ...boxShadown,
     paddingHorizontal: 8,
     marginBottom: 8,
   },
@@ -105,11 +95,5 @@ const styles = StyleSheet.create({
     height: 46,
     width: 46,
     borderRadius: 100,
-  },
-  avatar: {
-    borderWidth: 1,
-    borderRadius: 1000,
-    borderColor: '#4168F3',
-    marginTop: 4,
   },
 });

@@ -1,7 +1,8 @@
 import React from 'react';
 import {FlatList, StyleSheet, Text, View} from 'react-native';
 import Modal from 'react-native-modal';
-import {IconSet, TextBold, TextRegular} from '../common';
+import {blueColor} from '../../assets/styles';
+import {Button, IconSet, TextBold, TextRegular} from '../common';
 
 type ObjectIcon = {
   title: string;
@@ -45,22 +46,31 @@ export const ModalChooseActivity: React.FC<IModalChooseActivity> = ({
             data={dataIcon}
             renderItem={({item}) => {
               return (
-                <View style={{flexDirection: 'row'}}>
+                <View style={{flexDirection: 'row', alignItems: 'center'}}>
                   <View style={styles.containerIcon}>
                     <IconSet
                       name={item.icon}
                       size={22}
-                      color={'#4168F3'}
+                      color={blueColor}
                       type={item.type}
                     />
                   </View>
-                  <TextRegular>{item.title}</TextRegular>
+                  <TextRegular styleText={styles.textContent}>
+                    {item.title}
+                  </TextRegular>
                 </View>
               );
             }}
             keyExtractor={(item, i) => i.toString()}
-            ItemSeparatorComponent={() => <View style={{height: 8}}></View>}
+            ItemSeparatorComponent={() => <View style={{height: 12}}></View>}
           />
+          <View style={styles.action}>
+            <Button
+              onPress={() => onBackdropPress()}
+              styleButton={styles.btnCancel}>
+              Cancel
+            </Button>
+          </View>
         </View>
       </Modal>
     </View>
@@ -79,5 +89,17 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 22,
+  },
+  textContent: {
+    fontSize: 16,
+    color: '#343434',
+  },
+  action: {
+    marginTop: 8,
+    width: '100%',
+    alignItems: 'flex-end',
+  },
+  btnCancel: {
+    backgroundColor: '#d62828',
   },
 });
