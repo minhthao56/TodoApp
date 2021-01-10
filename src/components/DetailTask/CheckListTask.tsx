@@ -54,8 +54,8 @@ export const CheckListTask = () => {
             <TouchableOpacity
               style={styles.container}
               onPress={fadeIn}
-              delayPressIn={300}
-              delayPressOut={300}>
+              delayPressIn={200}
+              delayPressOut={200}>
               <View style={{marginRight: 4}}>
                 <View style={styles.circle}>
                   <Animated.View style={[{opacity: fadeAnim}]}>

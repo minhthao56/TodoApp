@@ -2,10 +2,8 @@ import React from 'react';
 import {
   GestureResponderEvent,
   StyleSheet,
-  Text,
   TouchableOpacity,
 } from 'react-native';
-import {TextBlack} from './TextBlack';
 import {TextRegular} from './TextRegular';
 
 interface IButton {
@@ -24,8 +22,8 @@ export const Button: React.FC<IButton> = ({
   return (
     <TouchableOpacity
       onPress={(event: GestureResponderEvent) => onPress(event)}
-      delayPressIn={300}
-      delayPressOut={300}
+      delayPressIn={200}
+      delayPressOut={200}
       style={styles.container}>
       <TextRegular styleText={styles.text}>{children}</TextRegular>
     </TouchableOpacity>
@@ -34,7 +32,7 @@ export const Button: React.FC<IButton> = ({
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#3E3F45',
+    backgroundColor: '#4168F3',
     width: 92,
     height: 34,
     borderRadius: 6,

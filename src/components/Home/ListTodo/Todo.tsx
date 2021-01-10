@@ -1,6 +1,7 @@
-import React, {useState} from 'react';
-import {StyleSheet, TouchableOpacity, View} from 'react-native';
+import React, {useEffect, useRef, useState} from 'react';
+import {StyleSheet, TouchableWithoutFeedback, View} from 'react-native';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
+import Animated, {Easing} from 'react-native-reanimated';
 import Feather from 'react-native-vector-icons/Feather';
 import {readMore} from '../../../helpers/home';
 import {IconSet, TextBold, TextRegular} from '../../common';
@@ -23,9 +24,22 @@ const Todo: React.FC<ITodo> = ({
   isComplete,
 }) => {
   const [isExpand, setIsExpand] = useState<boolean>(false);
+  const fadeAnim = useRef(new Animated.Value(100)).current;
+  // const fadeAnimBgColor = useRef(new Animated.Value(0)).current;
 
   const hanldeExpand = () => {
     setIsExpand(!isExpand);
+    !isExpand
+      ? Animated.timing(fadeAnim, {
+          toValue: 200,
+          duration: 300,
+          easing: Easing.ease,
+        }).start()
+      : Animated.timing(fadeAnim, {
+          toValue: 100,
+          duration: 300,
+          easing: Easing.ease,
+        }).start();
   };
 
   // right
@@ -78,84 +92,107 @@ const Todo: React.FC<ITodo> = ({
     <Swipeable
       renderRightActions={renderRightActions}
       renderLeftActions={renderLeftActions}>
-      <TouchableOpacity
-        style={
-          isExpand
-            ? {
-                ...styles.container,
-                alignItems: 'flex-start',
-                backgroundColor: '#4168F3',
-                height: 200,
-              }
-            : styles.container
-        }
-        onPress={hanldeExpand}>
-        <View
-          style={
-            isExpand
-              ? {...styles.containerIcon, backgroundColor: '#5C80FA'}
-              : styles.containerIcon
-          }>
-          <IconSet
-            name={icon}
-            size={18}
-            color={isExpand ? 'white' : '#4168F3'}
-            type={type}
-          />
-        </View>
-        <View style={{flex: 1, flexDirection: 'row', alignItems: 'center'}}>
-          <View style={styles.main}>
-            <TextBold
-              styleText={
-                isComplete
-                  ? isExpand
-                    ? {
-                        ...styles.title,
-                        textDecorationLine: 'line-through',
-                        color: 'white',
-                      }
-                    : {
-                        ...styles.title,
-                        textDecorationLine: 'line-through',
-                        color: 'black',
-                      }
-                  : isExpand
-                  ? {...styles.title, color: 'white'}
-                  : {...styles.title, color: 'black'}
-              }>
-              {title}
-            </TextBold>
-            <TextRegular
-              styleText={
-                isComplete
-                  ? isExpand
-                    ? {
-                        ...styles.content,
-                        textDecorationLine: 'line-through',
-                        color: 'white',
-                      }
-                    : {
-                        ...styles.content,
-                        textDecorationLine: 'line-through',
-                        color: '#898989',
-                      }
-                  : isExpand
-                  ? {...styles.content, color: 'white'}
-                  : {...styles.content, color: '#898989'}
-              }>
-              {readMore(content, 52)}
-            </TextRegular>
+      <TouchableWithoutFeedback
+        onPress={hanldeExpand}
+        delayPressIn={200}
+        delayPressOut={200}>
+        <Animated.View
+          style={[
+            styles.container,
+            {
+              backgroundColor: isExpand ? '#4168F3' : 'white',
+              height: fadeAnim,
+            },
+          ]}>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+            }}>
+            <View style={{height: '100%'}}>
+              <View
+                style={
+                  isExpand
+                    ? {...styles.containerIcon, backgroundColor: '#5C80FA'}
+                    : styles.containerIcon
+                }>
+                <IconSet
+                  name={icon}
+                  size={18}
+                  color={isExpand ? 'white' : '#4168F3'}
+                  type={type}
+                />
+              </View>
+            </View>
+
+            <View style={{flex: 1, flexDirection: 'row', alignItems: 'center'}}>
+              <View style={styles.main}>
+                <TextBold
+                  styleText={
+                    isComplete
+                      ? isExpand
+                        ? {
+                            ...styles.title,
+                            textDecorationLine: 'line-through',
+                            color: 'white',
+                          }
+                        : {
+                            ...styles.title,
+                            textDecorationLine: 'line-through',
+                            color: 'black',
+                          }
+                      : isExpand
+                      ? {...styles.title, color: 'white'}
+                      : {...styles.title, color: 'black'}
+                  }>
+                  {title}
+                </TextBold>
+                <TextRegular
+                  styleText={
+                    isComplete
+                      ? isExpand
+                        ? {
+                            ...styles.content,
+                            textDecorationLine: 'line-through',
+                            color: 'white',
+                          }
+                        : {
+                            ...styles.content,
+                            textDecorationLine: 'line-through',
+                            color: '#898989',
+                          }
+                      : isExpand
+                      ? {...styles.content, color: 'white'}
+                      : {...styles.content, color: '#898989'}
+                  }>
+                  {isExpand ? readMore(content, 200) : readMore(content, 52)}
+                </TextRegular>
+              </View>
+              <View>
+                <TextBold
+                  styleText={
+                    isExpand ? {...styles.time, color: 'white'} : styles.time
+                  }>
+                  {time}
+                </TextBold>
+              </View>
+            </View>
           </View>
-          <View>
-            <TextBold
-              styleText={
-                isExpand ? {...styles.time, color: 'white'} : styles.time
-              }>
-              {time}
-            </TextBold>
-          </View>
-        </View>
-      </TouchableOpacity>
+          {isExpand && (
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-around',
+                width: '100%',
+              }}>
+              <Feather name="trash-2" color="white" size={21} />
+              <Feather name="edit" color="white" size={20} />
+              <Feather name="check" color="white" size={20} />
+            </View>
+          )}
+        </Animated.View>
+      </TouchableWithoutFeedback>
     </Swipeable>
   );
 };
@@ -164,9 +201,6 @@ export default Todo;
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
     padding: 16,
     backgroundColor: 'white',
     borderRadius: 16,
@@ -182,6 +216,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 4,
     borderLeftWidth: 2,
     borderLeftColor: '#4168F3',
+    justifyContent: 'space-between',
   },
   title: {
     fontSize: 20,

@@ -21,7 +21,7 @@ const DATA = [
       {
         title: 'Travle',
         content:
-          'reading and seening reading and seening Meeting with Join reading and seening Meeting with Join reading and seening Meeting with Join reading and seening',
+          'reading and seening reading and seening Meeting with Join reading and seening Meeting with Join reading and seening Meeting with Join reading and seening reading and seening reading and seening Meeting with Join reading and seening Meeting with Join reading and seening Meeting with Join reading and seening',
         time: '14:22',
         type: 'ii',
         icon: 'airplane-outline',
@@ -168,7 +168,7 @@ const styles = StyleSheet.create({
     alignItems: 'flex-end',
   },
   textHeader: {
-    fontSize: 20,
+    fontSize: 18,
     color: '#06a77d',
   },
   icon: {
