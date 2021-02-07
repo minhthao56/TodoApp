@@ -9,3 +9,12 @@ export const boxShadown = {
   shadowRadius: 1.41,
   elevation: 2,
 };
+
+export const containerIcon = {
+  backgroundColor: '#EEF1FF',
+  height: 42,
+  width: 42,
+  justifyContent: 'center',
+  alignItems: 'center',
+  borderRadius: 6,
+};

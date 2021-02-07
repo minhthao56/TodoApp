@@ -199,7 +199,7 @@ const styles = StyleSheet.create({
   container: {
     padding: 16,
     backgroundColor: 'white',
-    borderRadius: 16,
+    borderRadius: 8,
     shadowColor: '#000',
     shadowOffset: {
       width: 0,

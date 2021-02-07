@@ -1,5 +1,12 @@
 import React from 'react';
-import {StyleSheet, View, SafeAreaView, Image, StatusBar} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  SafeAreaView,
+  StatusBar,
+  NativeSyntheticEvent,
+  NativeScrollEvent,
+} from 'react-native';
 import moment from 'moment';
 import {StackScreenProps} from '@react-navigation/stack';
 
@@ -17,6 +24,25 @@ export function Tasks({route, navigation}: Props) {
   const handleDetailAddTask = () => {
     navigation.navigate('DetailTask');
   };
+
+  // const scrollY = new Animated.Value(0);
+  // const headerHeight = scrollY.interpolate({
+  //   inputRange: [0, 170],
+  //   outputRange: [170, 80],
+  //   extrapolate: 'clamp',
+  // });
+  // const scrollYCalendar = new Animated.Value(0);
+  // const headerCalendar = scrollYCalendar.interpolate({
+  //   inputRange: [0, 70],
+  //   outputRange: [70, 0],
+  //   extrapolate: 'clamp',
+  // });
+  // const hanldeScrollListTodo = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
+  // scrollY.setValue(e.nativeEvent.contentOffset.y);
+  // scrollYCalendar.setValue(e.nativeEvent.contentOffset.y);
+  // console.log('hanldeScrollListTodo');
+  // };
+
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar backgroundColor="white" barStyle="dark-content" />

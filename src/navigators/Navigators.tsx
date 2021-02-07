@@ -7,6 +7,7 @@ import {
   createBottomTabNavigator,
 } from '@react-navigation/bottom-tabs';
 import Feather from 'react-native-vector-icons/Feather';
+
 import {Tasks, DetailTask, Profile, DetailAccount} from '../screens';
 import {TabBarAdvancedButton} from '../components/common';
 import {blueColor} from '../assets/styles';

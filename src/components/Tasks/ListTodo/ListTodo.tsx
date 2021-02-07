@@ -116,7 +116,10 @@ const DATA = [
   },
 ];
 
-export const ListTodo = () => {
+interface IListTodo {
+  // onScroll: Function;
+}
+export const ListTodo: React.FC<IListTodo> = () => {
   return (
     <SectionList
       sections={DATA}
@@ -158,6 +161,8 @@ export const ListTodo = () => {
       )}
       contentContainerStyle={{paddingBottom: 320}}
       ItemSeparatorComponent={() => <View style={{height: 5}}></View>}
+      SectionSeparatorComponent={() => <View style={{height: 10}}></View>}
+      scrollEventThrottle={16}
     />
   );
 };
@@ -166,6 +171,7 @@ const styles = StyleSheet.create({
   contianerHeader: {
     flexDirection: 'row',
     alignItems: 'flex-end',
+    // position: 'absolute',
   },
   textHeader: {
     fontSize: 18,

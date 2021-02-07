@@ -1,31 +1,78 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
-import {VictoryBar, VictoryChart, VictoryTheme} from 'victory-native';
+import {Dimensions, StyleSheet, View} from 'react-native';
+import {
+  VictoryBar,
+  VictoryChart,
+  VictoryTheme,
+  VictoryLabel,
+  VictoryAxis,
+} from 'victory-native';
+import {blueColor, boxShadown} from '../../assets/styles';
+import {TextRegular} from '../common';
 
 const data = [
-  {quarter: 1, earnings: 13000},
-  {quarter: 2, earnings: 16500},
-  {quarter: 3, earnings: 14250},
-  {quarter: 4, earnings: 19000},
+  {quarter: 'Mon', earnings: 13},
+  {quarter: 'Tue', earnings: 16},
+  {quarter: 'Wed', earnings: 10},
+  {quarter: 'Thu', earnings: 12},
+  {quarter: 'Fri', earnings: 12},
+  {quarter: 'Sat', earnings: 11},
+  {quarter: 'Sun', earnings: 6},
 ];
 
 export const ChartTask = () => {
+  const windowWidth = Dimensions.get('window').width;
   return (
-    <View>
-      <View style={styles.container}>
-        <VictoryChart width={350} theme={VictoryTheme.material}>
-          <VictoryBar data={data} x="quarter" y="earnings" />
-        </VictoryChart>
+    <View style={styles.container}>
+      <View
+        style={{
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+          paddingHorizontal: 16,
+          top: 18,
+        }}>
+        <TextRegular>Chart tasks completion</TextRegular>
+        <TextRegular>12/12 - 22/12</TextRegular>
       </View>
+      <VictoryChart width={windowWidth} theme={VictoryTheme.grayscale}>
+        <VictoryBar
+          data={data}
+          x="quarter"
+          y="earnings"
+          style={{
+            data: {
+              fill: blueColor,
+              width: 8,
+            },
+          }}
+          cornerRadius={{bottom: 4, top: 4}}
+          animate={{
+            duration: 1500,
+            onLoad: {duration: 700},
+          }}
+        />
+        <VictoryAxis
+          style={{
+            axis: {stroke: '#f8f8f8'},
+            tickLabels: {fontSize: 11, fontFamily: 'Mulish-Light'},
+          }}
+        />
+        <VictoryAxis
+          dependentAxis
+          style={{
+            axis: {stroke: blueColor},
+            tickLabels: {fontSize: 11, fontFamily: 'Mulish-Light'},
+          }}
+        />
+      </VictoryChart>
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#f5fcff',
+    backgroundColor: 'white',
+    ...boxShadown,
+    borderRadius: 8,
   },
 });

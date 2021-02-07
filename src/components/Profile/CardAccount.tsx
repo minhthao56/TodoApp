@@ -1,6 +1,7 @@
 import React from 'react';
 import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
+import {containerIcon} from '../../assets/styles';
 
 import {Avatar, TextBold, TextLight} from '../common';
 
@@ -20,6 +21,7 @@ export const CardAccount = () => {
             size={20}
             style={{marginRight: 8}}
           />
+
           <TextLight styleText={styles.textlogout}>Logout</TextLight>
         </TouchableOpacity>
       </View>

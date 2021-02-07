@@ -25,6 +25,7 @@ export const Agenda: React.FC = () => {
       // pagingEnabled = {true}
       initialScrollIndex={findIndexDayNow}
       getItemLayout={(data, index) => ({length: 45, offset: 45 * index, index})}
+      showsHorizontalScrollIndicator={false}
     />
   );
 };
