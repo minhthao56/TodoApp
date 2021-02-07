@@ -8,7 +8,14 @@ import {
 } from '@react-navigation/bottom-tabs';
 import Feather from 'react-native-vector-icons/Feather';
 
-import {Tasks, DetailTask, Profile, DetailAccount} from '../screens';
+import {
+  Tasks,
+  DetailTask,
+  Profile,
+  DetailAccount,
+  Home,
+  Notification,
+} from '../screens';
 import {TabBarAdvancedButton} from '../components/common';
 import {blueColor} from '../assets/styles';
 
@@ -47,11 +54,15 @@ export default function Navigators() {
           },
         }}
         screenOptions={({route}) => ({
-          tabBarIcon: ({focused, color, size}) => {
+          tabBarIcon: ({color, size}) => {
             if (route.name === 'Task') {
               return <Feather name="list" color={color} size={size} />;
             } else if (route.name === 'Profile') {
               return <Feather name="user" color={color} size={size} />;
+            } else if (route.name === 'Home') {
+              return <Feather name="home" color={color} size={size} />;
+            } else if (route.name === 'Notification') {
+              return <Feather name="bell" color={color} size={size} />;
             }
           },
         })}
@@ -60,6 +71,7 @@ export default function Navigators() {
             <BottomTabBar {...props} />
           </View>
         )}>
+        <Tab.Screen name="Home" component={Home} />
         <Tab.Screen name="Task" component={TaskStackScreen} />
         <Tab.Screen
           name="Add"
@@ -70,6 +82,7 @@ export default function Navigators() {
             ),
           }}
         />
+        <Tab.Screen name="Notification" component={Notification} />
         <Tab.Screen name="Profile" component={ProfileStackScreen} />
       </Tab.Navigator>
     </NavigationContainer>

@@ -1,4 +1,5 @@
 export const blueColor = '#0410a0';
+export const bgIcon = '#EEF1FF';
 export const boxShadown = {
   shadowColor: '#000',
   shadowOffset: {

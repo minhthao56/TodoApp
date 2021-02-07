@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useRef, useState} from 'react';
 import {StyleSheet, TouchableWithoutFeedback, View} from 'react-native';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 import Animated, {Easing} from 'react-native-reanimated';
@@ -100,6 +100,7 @@ const Todo: React.FC<ITodo> = ({
         <Animated.View
           style={[
             styles.container,
+
             {
               backgroundColor: isExpand ? blueColor : 'white',
               height: fadeAnim,

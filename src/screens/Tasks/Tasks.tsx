@@ -1,25 +1,18 @@
 import React from 'react';
-import {
-  StyleSheet,
-  View,
-  SafeAreaView,
-  StatusBar,
-  NativeSyntheticEvent,
-  NativeScrollEvent,
-} from 'react-native';
+import {StyleSheet, View, SafeAreaView, StatusBar} from 'react-native';
 import moment from 'moment';
 import {StackScreenProps} from '@react-navigation/stack';
 
-import {Avatar, TextBold, TextLight} from '../../components/common';
-import {Agenda, ButtonAdd, ListTodo} from '../../components';
-import {boxShadown} from '../../assets/styles';
+import {TextBold, TextLight} from '../../components/common';
+import {Agenda, ButtonAdd, HeaderAvatar, ListTodo} from '../../components';
+import {blueColor, boxShadown} from '../../assets/styles';
 
 type RootStackParamList = {
   DetailTask: undefined;
 };
 type Props = StackScreenProps<RootStackParamList, 'DetailTask'>;
 
-export function Tasks({route, navigation}: Props) {
+export function Tasks({navigation}: Props) {
   const monthNow = moment().format('MMM');
   const handleDetailAddTask = () => {
     navigation.navigate('DetailTask');
@@ -47,10 +40,7 @@ export function Tasks({route, navigation}: Props) {
     <SafeAreaView style={styles.container}>
       <StatusBar backgroundColor="white" barStyle="dark-content" />
       <View style={styles.containerHeader}>
-        <View style={styles.header}>
-          <TextBold styleText={styles.textBold}>Hey Thao</TextBold>
-          <Avatar image="https://picsum.photos/200" />
-        </View>
+        <HeaderAvatar />
         <TextLight styleText={styles.textLight}>remaining task: 6</TextLight>
         <View style={styles.containerAgenda}>
           <View style={styles.containerMonth}>
@@ -88,9 +78,9 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   header: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
+    // flexDirection: 'row',
+    // alignItems: 'center',
+    // justifyContent: 'space-between',
   },
   containerAgenda: {
     flexDirection: 'row',
@@ -121,5 +111,10 @@ const styles = StyleSheet.create({
     height: 46,
     width: 46,
     borderRadius: 100,
+  },
+  avatar: {
+    borderWidth: 1,
+    borderRadius: 100,
+    borderColor: blueColor,
   },
 });

@@ -1,0 +1,3 @@
+interface ITitleHome {
+  title?: string;
+}
