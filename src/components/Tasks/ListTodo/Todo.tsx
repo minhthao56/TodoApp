@@ -1,3 +1,4 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, {useRef, useState} from 'react';
 import {StyleSheet, TouchableWithoutFeedback, View} from 'react-native';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
@@ -26,22 +27,32 @@ const Todo: React.FC<ITodo> = ({
 }) => {
   const [isExpand, setIsExpand] = useState<boolean>(false);
   const fadeAnim = useRef(new Animated.Value(100)).current;
-  // const fadeAnimBgColor = useRef(new Animated.Value(0)).current;
+  const colorAnim = useRef(new Animated.Value(0)).current;
+
+  const animation = (Anim: any, to: any, Anim2: any, to2: any) => {
+    Animated.timing(Anim, {
+      toValue: to,
+      duration: 300,
+      easing: Easing.ease,
+    }).start();
+    Animated.timing(Anim2, {
+      toValue: to2,
+      duration: 300,
+      easing: Easing.ease,
+    }).start();
+  };
 
   const hanldeExpand = () => {
     setIsExpand(!isExpand);
-    !isExpand
-      ? Animated.timing(fadeAnim, {
-          toValue: 200,
-          duration: 200,
-          easing: Easing.ease,
-        }).start()
-      : Animated.timing(fadeAnim, {
-          toValue: 100,
-          duration: 200,
-          easing: Easing.ease,
-        }).start();
+    isExpand
+      ? animation(fadeAnim, 100, colorAnim, 0)
+      : animation(fadeAnim, 200, colorAnim, 1);
   };
+
+  const color = Animated.interpolateColors(colorAnim, {
+    inputRange: [0, 1],
+    outputColorRange: ['white', blueColor],
+  });
 
   // right
   const renderRightActions = () => {
@@ -100,9 +111,8 @@ const Todo: React.FC<ITodo> = ({
         <Animated.View
           style={[
             styles.container,
-
             {
-              backgroundColor: isExpand ? blueColor : 'white',
+              backgroundColor: color,
               height: fadeAnim,
             },
           ]}>
@@ -199,7 +209,7 @@ export default Todo;
 const styles = StyleSheet.create({
   container: {
     padding: 16,
-    backgroundColor: 'white',
+    // backgroundColor: 'white',
     borderRadius: 8,
     shadowColor: '#000',
     shadowOffset: {

@@ -7,3 +7,4 @@ export * from './TextInputCommon';
 export * from './Button';
 export * from './IconSet';
 export * from './Avatar';
+export * from './CheckBox';

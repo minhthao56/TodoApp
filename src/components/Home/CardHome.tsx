@@ -9,9 +9,15 @@ export const CardHome = () => {
   return (
     <View style={styles.container}>
       <View>
-        <View style={styles.containerIcon}>
-          <IconSet type="fea" name="search" size={18} color={blueColor} />
+        <View style={styles.header}>
+          <View style={styles.containerIcon}>
+            <IconSet type="fea" name="search" size={18} color={blueColor} />
+          </View>
+          <View style={styles.iconX}>
+            <Feather name="x" color="white" />
+          </View>
         </View>
+
         <TextBold styleText={styles.title}>CardHome</TextBold>
         <TextLight styleText={styles.text}>
           CardHawfc ome dwqdwq Card Hawfc ome dwqdwq CardHawfc
@@ -36,6 +42,10 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     ...boxShadown,
   },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
   containerIcon: {
     backgroundColor: 'white',
     justifyContent: 'center',
@@ -46,19 +56,16 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   title: {
-    // color: blueColor,
     color: 'white',
     fontSize: 20,
     marginBottom: 4,
   },
   text: {
-    // color: '#343434',
     lineHeight: 20,
     color: 'white',
     marginBottom: 6,
   },
   textTime: {
-    // color: '#aaaaaa',
     marginLeft: 4,
     color: 'white',
   },
@@ -66,5 +73,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'flex-end',
+  },
+  iconX: {
+    height: 20,
+    width: 20,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'rgba(255,255,255,0.3)',
+    borderRadius: 100,
   },
 });

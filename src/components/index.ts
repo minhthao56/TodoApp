@@ -16,3 +16,6 @@ export * from './Home/HeaderAvatar';
 export * from './Home/SearchBar';
 export * from './Home/TitleHome';
 export * from './Home/CardHome';
+export * from './Home/DetailCard';
+// autn
+export * from './Auth/InputAuth';

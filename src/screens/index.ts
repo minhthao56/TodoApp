@@ -4,3 +4,6 @@ export * from './Profile/Profile';
 export * from './Profile/DetailAccount';
 export * from './Home/Home';
 export * from './Notification/Notification';
+export * from './Auth/ForgotPassword';
+export * from './Auth/Login';
+export * from './Auth/Register';

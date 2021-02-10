@@ -1,13 +1,6 @@
 import React from 'react';
 import {StyleSheet, TextInput} from 'react-native';
 
-interface ITextInputCommon {
-  multiline?: boolean;
-  numberOfLines?: number;
-  style?: Object;
-  placeholder?: string;
-}
-
 export const TextInputCommon: React.FC<ITextInputCommon> = ({
   multiline,
   numberOfLines,

@@ -3,7 +3,7 @@ import {StyleSheet, View, SafeAreaView, StatusBar} from 'react-native';
 import moment from 'moment';
 import {StackScreenProps} from '@react-navigation/stack';
 
-import {TextBold, TextLight} from '../../components/common';
+import {TextBold} from '../../components/common';
 import {Agenda, ButtonAdd, HeaderAvatar, ListTodo} from '../../components';
 import {blueColor, boxShadown} from '../../assets/styles';
 
@@ -18,30 +18,13 @@ export function Tasks({navigation}: Props) {
     navigation.navigate('DetailTask');
   };
 
-  // const scrollY = new Animated.Value(0);
-  // const headerHeight = scrollY.interpolate({
-  //   inputRange: [0, 170],
-  //   outputRange: [170, 80],
-  //   extrapolate: 'clamp',
-  // });
-  // const scrollYCalendar = new Animated.Value(0);
-  // const headerCalendar = scrollYCalendar.interpolate({
-  //   inputRange: [0, 70],
-  //   outputRange: [70, 0],
-  //   extrapolate: 'clamp',
-  // });
-  // const hanldeScrollListTodo = (e: NativeSyntheticEvent<NativeScrollEvent>) => {
-  // scrollY.setValue(e.nativeEvent.contentOffset.y);
-  // scrollYCalendar.setValue(e.nativeEvent.contentOffset.y);
-  // console.log('hanldeScrollListTodo');
-  // };
-
   return (
     <SafeAreaView style={styles.container}>
       <StatusBar backgroundColor="white" barStyle="dark-content" />
       <View style={styles.containerHeader}>
-        <HeaderAvatar />
-        <TextLight styleText={styles.textLight}>remaining task: 6</TextLight>
+        <View style={styles.header}>
+          <HeaderAvatar />
+        </View>
         <View style={styles.containerAgenda}>
           <View style={styles.containerMonth}>
             <TextBold styleText={styles.textMonth}>{monthNow}</TextBold>
@@ -78,9 +61,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   header: {
-    // flexDirection: 'row',
-    // alignItems: 'center',
-    // justifyContent: 'space-between',
+    paddingVertical: 4,
   },
   containerAgenda: {
     flexDirection: 'row',

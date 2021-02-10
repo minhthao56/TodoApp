@@ -171,7 +171,6 @@ const styles = StyleSheet.create({
   contianerHeader: {
     flexDirection: 'row',
     alignItems: 'flex-end',
-    // position: 'absolute',
   },
   textHeader: {
     fontSize: 18,
