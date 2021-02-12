@@ -10,16 +10,16 @@ interface IText {
   styleText?: Object;
   children: any;
 }
-//InputAuth
-interface IInputAuth {
-  placeholder?: string;
-  lable?: string;
-  style?: Object;
-}
-//
+
+// ITextInputCommon
 interface ITextInputCommon {
   multiline?: boolean;
   numberOfLines?: number;
   style?: Object;
   placeholder?: string;
+}
+// TitleAuth
+interface ITitleAuth {
+  title?: string;
+  subTitle?: string;
 }

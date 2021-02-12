@@ -1,12 +1,7 @@
 import React from 'react';
 import {StyleSheet, Text, View} from 'react-native';
 
-interface Props {
-  styleText?: Object;
-  children: string;
-}
-
-export const TextBold: React.FC<Props> = ({styleText, children}) => {
+export const TextBold: React.FC<IText> = ({styleText, children}) => {
   return (
     <View>
       <Text style={{...styleText, ...styles.text}}>{children}</Text>

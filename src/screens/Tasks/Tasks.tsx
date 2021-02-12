@@ -6,12 +6,9 @@ import {StackScreenProps} from '@react-navigation/stack';
 import {TextBold} from '../../components/common';
 import {Agenda, ButtonAdd, HeaderAvatar, ListTodo} from '../../components';
 import {blueColor, boxShadown} from '../../assets/styles';
+import {TasksStackParamList} from '../../@types/navigator';
 
-type RootStackParamList = {
-  DetailTask: undefined;
-};
-type Props = StackScreenProps<RootStackParamList, 'DetailTask'>;
-
+type Props = StackScreenProps<TasksStackParamList, 'Tasks'>;
 export function Tasks({navigation}: Props) {
   const monthNow = moment().format('MMM');
   const handleDetailAddTask = () => {

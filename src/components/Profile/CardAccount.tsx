@@ -1,13 +1,15 @@
 import React from 'react';
 import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import Feather from 'react-native-vector-icons/Feather';
-import {containerIcon} from '../../assets/styles';
+import {doLogout} from '../../redux/slices/auth';
+import {useAppDispatch} from '../../redux/store';
 
 import {Avatar, TextBold, TextLight} from '../common';
 
 export const CardAccount = () => {
+  const dispatch = useAppDispatch();
   const handleLogout = () => {
-    console.log('handleLogout');
+    dispatch(doLogout());
   };
   return (
     <View style={styles.container}>

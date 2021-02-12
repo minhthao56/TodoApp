@@ -21,6 +21,8 @@ import {
 } from '../screens';
 import {TabBarAdvancedButton} from '../components/common';
 import {blueColor} from '../assets/styles';
+import {useSelector} from 'react-redux';
+import {RootState} from '../redux/rootReducer';
 
 const TaskStack = createStackNavigator();
 const ProfileStack = createStackNavigator();
@@ -28,7 +30,9 @@ const AuthStack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
 export default function Navigators() {
-  const isLogined = false;
+  const isLogined = useSelector((state: RootState) => state.auth.isLogined);
+  console.log('isLogined', isLogined);
+
   function TaskStackScreen() {
     return (
       <TaskStack.Navigator screenOptions={{headerShown: false}}>

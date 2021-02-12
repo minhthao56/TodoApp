@@ -18,4 +18,6 @@ export * from './Home/TitleHome';
 export * from './Home/CardHome';
 export * from './Home/DetailCard';
 // autn
-export * from './Auth/InputAuth';
+export * from './common/Input';
+export * from './Auth/TitleAuth';
+export * from './Auth/TextBottomAuth';
