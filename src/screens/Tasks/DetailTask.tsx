@@ -1,5 +1,6 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
+
 import {
   CheckListTask,
   ChooseIcons,
@@ -7,8 +8,16 @@ import {
   DateTimePickerTask,
 } from '../../components';
 import {Button} from '../../components/common';
+import db from '../../database';
 
 export const DetailTask = () => {
+  const handleTask = () => {
+    db.transaction((tx) => {
+      tx.executeSql('SELECT * FROM Task', [], (_tx, results) => {
+        console.log(results.rows.raw());
+      });
+    });
+  };
   return (
     <View style={styles.container}>
       <View style={styles.containerContent}>
@@ -24,7 +33,7 @@ export const DetailTask = () => {
         <CheckListTask />
       </View>
       <View style={styles.containerBtn}>
-        <Button onPress={() => console.log('aaa')}>Add Task</Button>
+        <Button onPress={handleTask}>Add Task</Button>
       </View>
     </View>
   );

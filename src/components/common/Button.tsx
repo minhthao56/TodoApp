@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   GestureResponderEvent,
-  StyleProp,
   StyleSheet,
   TouchableOpacity,
 } from 'react-native';
@@ -10,14 +9,14 @@ import {TextRegular} from './TextRegular';
 
 interface IButton {
   children: string;
-  onPress: Function;
+  onPress?: ((event: GestureResponderEvent) => void) | undefined;
   styleButton?: Object;
 }
 
 export const Button: React.FC<IButton> = ({children, onPress, styleButton}) => {
   return (
     <TouchableOpacity
-      onPress={(event: GestureResponderEvent) => onPress(event)}
+      onPress={onPress}
       delayPressIn={200}
       delayPressOut={200}
       style={{...styles.container, ...styleButton}}>

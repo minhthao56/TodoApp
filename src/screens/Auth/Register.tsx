@@ -9,7 +9,6 @@ import {AuthStackParamList} from '../../@types/navigator';
 import {Input, TextBottomAuth, TitleAuth} from '../../components';
 import {Button} from '../../components/common';
 import {email, name, password} from '../../helpers/auth/validattion';
-import {insertUser} from '../../database';
 
 // validation
 const validation = yup.object().shape({
@@ -34,15 +33,6 @@ export const Register: React.FC<TRegister> = ({navigation}) => {
   };
   const handleSubmitRegister = async (data: TRegisterData) => {
     console.log(data);
-    const userData = {
-      localId: Date.now(),
-      name: data.name,
-      email: data.email,
-      password: data.password,
-      forgotPassword: data.password,
-      isSync: false,
-    };
-    await insertUser(userData);
   };
 
   useEffect(() => {
