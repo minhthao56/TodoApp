@@ -8,15 +8,28 @@ import {
   DateTimePickerTask,
 } from '../../components';
 import {Button} from '../../components/common';
-import db from '../../database';
+import {dbSQLite} from '../../database';
 
 export const DetailTask = () => {
   const handleTask = () => {
-    db.transaction((tx) => {
-      tx.executeSql('SELECT * FROM Task', [], (_tx, results) => {
-        console.log(results.rows.raw());
+    dbSQLite
+      .then((db) => {
+        db.transaction((tx) => {
+          tx.executeSql('DROP TABLE task', [], (_tx, results) => {
+            console.log(' DROP task results', results);
+            _tx.executeSql(
+              'DROP TABLE listTodo',
+              [],
+              (__tx, resultslistTodo) => {
+                console.log(' DROP listTodo results', resultslistTodo);
+              },
+            );
+          });
+        });
+      })
+      .catch((err) => {
+        console.log('err', err);
       });
-    });
   };
   return (
     <View style={styles.container}>

@@ -1,18 +1,17 @@
-import SQLite from 'react-native-sqlite-storage';
+import SQLite, {SQLiteDatabase} from 'react-native-sqlite-storage';
 
-SQLite.enablePromise(true);
-SQLite.DEBUG;
-const db = SQLite.openDatabase(
-  {
-    name: 'SQLiteTodo.db',
-    location: 'default',
-    createFromLocation: '~www/SQLiteTodo.db',
-  },
-  () => {
-    'open db';
-  },
-  (error) => {
-    console.log(error);
+export const dbSQLite: Promise<SQLiteDatabase> = new Promise(
+  (resolve, reject) => {
+    SQLite.enablePromise(true);
+    SQLite.DEBUG;
+    SQLite.openDatabase({
+      name: 'TodoDB.db',
+      location: 'default',
+      createFromLocation: '~www/TodoDB.db',
+    })
+      .then((db) => {
+        resolve(db);
+      })
+      .catch((err) => reject(err));
   },
 );
-export default db;
